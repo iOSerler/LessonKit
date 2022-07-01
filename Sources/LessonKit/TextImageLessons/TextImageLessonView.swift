@@ -45,7 +45,9 @@ public struct TextImageLessonView: View {
                     ForEach(textLesson.sections!) { section in
                         TextImageLessonSectionView(settings: settings, section: section)
                     }
-                }
+                }.navigationTitle(textLesson.title)
+                 .navigationBarTitleDisplayMode(.inline)
+                 .padding(.horizontal, 20)
                     
             }
             .background(
