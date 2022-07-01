@@ -7,54 +7,70 @@
 
 import Foundation
 
-public struct Lesson: Identifiable, Decodable {
-    public var id: Int
-    public var type: String
-    public var title: String
-    public var description: String?
-    public var duration: String?
-    public var quizData: QuizData?
-    public var background: String?
-    public var sections: [TextLessonSection]?
-    public var url: String?
-    public var stamps: [VideoLessonStamp]?
+struct LessonData {
+    var lesson: Lesson?
+    
+    init(name: String) {
+        guard let url = Bundle.main.url(forResource: name, withExtension: "json")
+        else {
+            print(name+" json file not found")
+            self.lesson = nil
+            return
+        }
+        
+        let data = try? Data(contentsOf: url)
+        let pages = try? JSONDecoder().decode([Lesson].self, from: data!)
+        self.lesson = pages![0]
+    }
+}
+struct Lesson: Identifiable, Decodable {
+    var id: Int
+    var type: String
+    var title: String
+    var description: String?
+    var duration: String?
+    var quizData: QuizData?
+    var background: String?
+    var sections: [TextLessonSection]?
+    var url: String?
+    var stamps: [VideoLessonStamp]?
 }
 
-public struct TextLessonData: Identifiable, Decodable {
-    public var id: Int
-    public var text: String
-    public var image: String
+struct TextLessonData: Identifiable, Decodable {
+    var id: Int
+    var text: String
+    var image: String
 }
-public struct TextLessonSection: Identifiable, Decodable {
-    public var id: Int
-    public var title: String
-    public var data: [TextLessonData]
-}
-
-public struct VideoLessonStamp: Decodable {
-    public var seconds: Double
-    public var textTime: String
-    public var textDescription: String
+struct TextLessonSection: Identifiable, Decodable {
+    var id: Int
+    var title: String
+    var data: [TextLessonData]
 }
 
-public struct QuizData: Identifiable, Decodable {
-    public var id: Int
-    public var title: String
-    public var description: String
-    public var quizQuestions: [QuizQuestion]
+struct VideoLessonStamp: Decodable {
+    var seconds: Double
+    var textTime: String
+    var textDescription: String
 }
 
-public struct QuizQuestion: Identifiable, Decodable {
-    public var id: Int
-    public var type: String
-    public var points: Int
-    public var questionContent: QuizQuestionContent
+struct QuizData: Identifiable, Decodable {
+    var id: Int
+    var title: String
+    var description: String
+    var quizQuestions: [QuizQuestion]
+}
+
+struct QuizQuestion: Identifiable, Decodable {
+    var id: Int
+    var type: String
+    var points: Int
+    var questionContent: QuizQuestionContent
 }
 
 
-public struct QuizQuestionContent: Decodable {
-    public var topic: String
-    public var question: String
-    public var answers: [String]?
-    public var correctAnswer: [String]
+struct QuizQuestionContent: Decodable {
+    var topic: String
+    var question: String
+    var answers: [String]?
+    var correctAnswer: [String]
 }

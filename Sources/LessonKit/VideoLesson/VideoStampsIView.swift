@@ -8,18 +8,18 @@
 import SwiftUI
 import AVKit
 
-public struct VideoStampsIView: View {
+struct VideoStampsIView: View {
     var settings: LessonAssets
     var stamps: [VideoLessonStamp]
     @Binding var player: AVPlayer
     
-    public init(settings: LessonAssets, stamps: [VideoLessonStamp], player: Binding<AVPlayer>){
+    init(settings: LessonAssets, stamps: [VideoLessonStamp], player: Binding<AVPlayer>){
         self.settings = settings
         self.stamps = stamps
         self._player = player
     }
     
-    public var body: some View {
+    var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .firstTextBaseline) {
                 Text("Video Stamps")

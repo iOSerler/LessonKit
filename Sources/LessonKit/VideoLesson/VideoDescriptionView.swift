@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-public struct VideoDescriptionView: View {
+struct VideoDescriptionView: View {
     var settings: LessonAssets
     var videoLesson: Lesson
     
-    public init(settings: LessonAssets, videoLesson: Lesson){
+    init(settings: LessonAssets, videoLesson: Lesson){
         self.settings = settings
         self.videoLesson = videoLesson
     }
     
-    public var body: some View {
+    var body: some View {
         VStack(alignment: .leading, spacing: 20) {
             Text(videoLesson.title)
                 .font(Font.custom(settings.titleFont, size: 18))
