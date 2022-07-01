@@ -80,14 +80,7 @@ struct QuizQuestionView<TargetView: View>: View {
             Spacer()
             NavigationLink(
                 isActive: $isFinished,
-                destination: {
-//                    CompleteCourseView(
-//                        settings: settings,
-//                        courseTitle: coursesViewModel.getCourseNameFromId(courseId: courseId),
-//                        completionRate: ((coursesViewModel.saveCourseProgress(userId: 1, courseId: courseId) * 100).rounded() * 5) / 100,
-//                        numPoints: score
-//                    )
-                },
+                destination: { nextView },
                 label: {
                     Button(
                         action: {
