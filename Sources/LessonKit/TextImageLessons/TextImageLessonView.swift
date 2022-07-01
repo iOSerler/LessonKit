@@ -30,6 +30,7 @@ public struct TextImageLessonView: View {
                     .font(.custom(settings.descriptionFont, size: 14))
                     .foregroundColor(Color(settings.descriptionTextColor))
                     .multilineTextAlignment(.leading)
+                    .padding(.horizontal, 20)
                 HStack {
                     Image(settings.durationOffIcon)
                     
