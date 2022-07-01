@@ -7,17 +7,19 @@
 
 import SwiftUI
 
-public struct QuizView: View {
+public struct QuizView<TargetView: View>: View {
     
     var settings: QuizLessonAssets
     var lesson: Lesson
     @ObservedObject var lessonViewModel: LessonViewModel
+    var nextView: TargetView
     var courseId: Int?
     
-    public init(settings: QuizLessonAssets, jsonName: String, lessonViewModel: LessonViewModel){
+    public init(settings: QuizLessonAssets, jsonName: String, lessonViewModel: LessonViewModel, nextView: TargetView){
         self.settings = settings
         self.lesson = LessonData(name: jsonName).lesson!
         self.lessonViewModel = lessonViewModel
+        self.nextView = nextView
     }
     
     public var body: some View {
@@ -107,6 +109,7 @@ public struct QuizView: View {
                 quizQuestions: lesson.quizData!.quizQuestions,
                 currentQuestion: lesson.quizData!.quizQuestions[0],
                 lessonViewModel: lessonViewModel,
+                nextView: nextView,
                 courseId: courseId,
                 lessonId: lesson.id
             ), label: {

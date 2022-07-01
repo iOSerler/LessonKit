@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct QuizQuestionView: View {
+struct QuizQuestionView<TargetView: View>: View {
     
     var settings: QuizLessonAssets
     var quizQuestions: [QuizQuestion]
@@ -19,6 +19,7 @@ struct QuizQuestionView: View {
     @State var chosenAnswer: String = ""
     @State var score: Int = 0
     @ObservedObject var lessonViewModel: LessonViewModel
+    var nextView: TargetView
     var courseId: Int?
     var lessonId: Int
     @Environment(\.presentationMode) var presentationMode
