@@ -23,6 +23,7 @@ struct TextImageView: View {
             }
             if let image = textImage.image {
                 WebImage(url: URL(string: image))
+                    .resizable()
                     .aspectRatio(contentMode: .fit)
             }
         }
