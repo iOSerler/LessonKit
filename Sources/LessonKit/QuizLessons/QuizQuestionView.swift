@@ -19,7 +19,6 @@ struct QuizQuestionView: View {
     @State var chosenAnswer: String = ""
     @State var score: Int = 0
     @ObservedObject var lessonViewModel: LessonViewModel
-    var nextView: View
     var courseId: Int?
     var lessonId: Int
     @Environment(\.presentationMode) var presentationMode
@@ -80,7 +79,14 @@ struct QuizQuestionView: View {
             Spacer()
             NavigationLink(
                 isActive: $isFinished,
-                destination: { nextView },
+                destination: {
+//                    CompleteCourseView(
+//                        settings: settings,
+//                        courseTitle: coursesViewModel.getCourseNameFromId(courseId: courseId),
+//                        completionRate: ((coursesViewModel.saveCourseProgress(userId: 1, courseId: courseId) * 100).rounded() * 5) / 100,
+//                        numPoints: score
+//                    )
+                },
                 label: {
                     Button(
                         action: {
