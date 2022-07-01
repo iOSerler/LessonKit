@@ -17,7 +17,7 @@ struct QuizQuestionView<TargetView: View>: View {
     @State var isFinished: Bool = false
     @State var hasSelectedAnswer: Bool = false
     @State var chosenAnswer: String = ""
-    @State var score: Int = 0
+    @Binding var score: Int
     @ObservedObject var lessonViewModel: LessonViewModel
     var nextView: TargetView
     var courseId: Int?
