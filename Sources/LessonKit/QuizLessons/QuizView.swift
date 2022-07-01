@@ -11,6 +11,7 @@ public struct QuizView: View {
     
     var settings: QuizLessonAssets
     var lesson: Lesson
+    var nextView: View
     @ObservedObject var lessonViewModel: LessonViewModel
     var courseId: Int?
     
@@ -107,6 +108,7 @@ public struct QuizView: View {
                 quizQuestions: lesson.quizData!.quizQuestions,
                 currentQuestion: lesson.quizData!.quizQuestions[0],
                 lessonViewModel: lessonViewModel,
+                nextView: nextView
                 courseId: courseId,
                 lessonId: lesson.id
             ), label: {
