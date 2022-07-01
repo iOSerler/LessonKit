@@ -15,11 +15,13 @@ public struct QuizView: View {
     @ObservedObject var lessonViewModel: LessonViewModel
     var courseId: Int?
     
-    public init(settings: QuizLessonAssets, jsonName: String, lessonViewModel: LessonViewModel){
+    public init(settings: QuizLessonAssets, jsonName: String, lessonViewModel: LessonViewModel, nextView: View){
         self.settings = settings
         self.lesson = LessonData(name: jsonName).lesson!
         self.lessonViewModel = lessonViewModel
+        self.nextView = nextView
     }
+    
     
     public var body: some View {
         VStack(alignment: .center, spacing: 30) {
