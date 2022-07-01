@@ -9,11 +9,11 @@ import SwiftUI
 import AVKit
 
 struct VideoStampsIView: View {
-    var settings: LessonAssets
+    var settings: VideoLessonAssets
     var stamps: [VideoLessonStamp]
     @Binding var player: AVPlayer
     
-    init(settings: LessonAssets, stamps: [VideoLessonStamp], player: Binding<AVPlayer>){
+    init(settings: VideoLessonAssets, stamps: [VideoLessonStamp], player: Binding<AVPlayer>){
         self.settings = settings
         self.stamps = stamps
         self._player = player

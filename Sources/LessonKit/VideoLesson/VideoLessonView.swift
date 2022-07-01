@@ -9,13 +9,13 @@ import SwiftUI
 import AVKit
 
 public struct VideoLessonView: View {
-    var settings: LessonAssets
+    var settings: VideoLessonAssets
     var videoLesson: Lesson
     @ObservedObject var lessonViewModel: LessonViewModel
     
     @State var player: AVPlayer
     
-    public init(settings: LessonAssets, jsonName: String, lessonViewModel: LessonViewModel) {
+    public init(settings: VideoLessonAssets, jsonName: String, lessonViewModel: LessonViewModel) {
         self.settings = settings
         self.videoLesson = LessonData(name: jsonName).lesson!
         self.lessonViewModel = lessonViewModel

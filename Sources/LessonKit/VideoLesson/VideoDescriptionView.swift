@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct VideoDescriptionView: View {
-    var settings: LessonAssets
+    var settings: VideoLessonAssets
     var videoLesson: Lesson
     
-    init(settings: LessonAssets, videoLesson: Lesson){
+    init(settings: VideoLessonAssets, videoLesson: Lesson){
         self.settings = settings
         self.videoLesson = videoLesson
     }
@@ -23,7 +23,7 @@ struct VideoDescriptionView: View {
                 .foregroundColor(Color(settings.mainTextColor))
             
             HStack {
-                Image(settings.timeImage)
+                Image(settings.durationOnIcon)
                 Text(videoLesson.duration!)
                     .font(Font.custom(settings.descriptionFont, size: 14))
                     .foregroundColor(Color(settings.detailsTextColor))
