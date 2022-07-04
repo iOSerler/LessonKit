@@ -53,7 +53,7 @@ struct WillDisappearModifier: ViewModifier {
 }
 
 extension View {
-    func onWillDisappear(_ perform: @escaping () -> Void) -> some View {
+    public func onWillDisappear(_ perform: @escaping () -> Void) -> some View {
         self.modifier(WillDisappearModifier(callback: perform))
     }
 }
