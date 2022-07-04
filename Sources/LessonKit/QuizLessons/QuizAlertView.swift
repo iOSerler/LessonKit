@@ -7,11 +7,16 @@
 
 import SwiftUI
 
-struct QuizAlertView: View {
+public struct QuizAlertView: View {
     var settings: QuizLessonAssets
     @Binding var showAlert: Bool
     
-    var body: some View {
+    public init (settings: QuizLessonAssets, showAlert: Binding<Bool>){
+        self.settings = settings
+        self._showAlert = showAlert
+    }
+    
+    public var body: some View {
         ZStack {
             Image(settings.quizPopup)
                 .scaledToFit()
