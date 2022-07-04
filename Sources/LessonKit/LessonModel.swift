@@ -10,7 +10,7 @@ import Foundation
 struct LessonData {
     var lesson: Lesson?
     
-    init(name: String) {
+    init(name: String, lessonId: Int) {
         guard let url = Bundle.main.url(forResource: name, withExtension: "json")
         else {
             print(name+" json file not found")
@@ -20,7 +20,7 @@ struct LessonData {
         
         let data = try? Data(contentsOf: url)
         let pages = try? JSONDecoder().decode([Lesson].self, from: data!)
-        self.lesson = pages![0]
+        self.lesson = pages![lessonId - 1]
     }
 }
 struct Lesson: Identifiable, Decodable {

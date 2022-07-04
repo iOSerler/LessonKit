@@ -15,9 +15,9 @@ public struct VideoLessonView: View {
     
     @State var player: AVPlayer
     
-    public init(settings: VideoLessonAssets, jsonName: String, lessonViewModel: LessonViewModel) {
+    public init(settings: VideoLessonAssets, jsonName: String, lessonId: Int, lessonViewModel: LessonViewModel) {
         self.settings = settings
-        self.videoLesson = LessonData(name: jsonName).lesson!
+        self.videoLesson = LessonData(name: jsonName, lessonId: lessonId).lesson!
         self.lessonViewModel = lessonViewModel
         self._player = State(initialValue: AVPlayer(url: URL(string: videoLesson.url!)!))
     }

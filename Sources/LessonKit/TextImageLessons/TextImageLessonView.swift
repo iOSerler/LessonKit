@@ -14,9 +14,9 @@ public struct TextImageLessonView: View {
     @State private var scrollViewHeight: CGFloat
     @State private var proportion: CGFloat
     
-    public init (settings: TextLessonAssets, jsonName: String, lessonViewModel: LessonViewModel){
+    public init (settings: TextLessonAssets, jsonName: String, lessonId: Int, lessonViewModel: LessonViewModel){
         self.settings = settings
-        self.textLesson = LessonData(name: jsonName).lesson!
+        self.textLesson = LessonData(name: jsonName, lessonId: lessonId).lesson!
         self.lessonViewModel = lessonViewModel
         self._scrollViewHeight = State(initialValue: 0)
         self._proportion = State(initialValue: 0)

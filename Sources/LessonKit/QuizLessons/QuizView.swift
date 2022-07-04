@@ -16,9 +16,9 @@ public struct QuizView<TargetView: View>: View {
     var nextView: TargetView
     var courseId: Int?
     
-    public init(settings: QuizLessonAssets, jsonName: String, lessonViewModel: LessonViewModel, nextView: TargetView, numPoints: Binding<Int>){
+    public init(settings: QuizLessonAssets, jsonName: String, lessonId: Int, lessonViewModel: LessonViewModel, nextView: TargetView, numPoints: Binding<Int>){
         self.settings = settings
-        self.lesson = LessonData(name: jsonName).lesson!
+        self.lesson = LessonData(name: jsonName, lessonId: lessonId).lesson!
         self.lessonViewModel = lessonViewModel
         self.nextView = nextView
         self._score = numPoints
